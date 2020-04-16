@@ -18,6 +18,7 @@
 package output
 
 import (
+	"fmt"
 	"unsafe"
 	"reflect"
 	"encoding/binary"
@@ -75,7 +76,9 @@ func GetRecord(dec *FLBDecoder) (ret int, ts interface{}, rec map[interface{}]in
 	if check != nil {
 		return -1, 0, nil
 	}
-
+	mType := fmt.Sprint("%T", m)
+	fmt.Printf("GetRecord mType %s\n", mType)
+	
 	slice := reflect.ValueOf(m)
 	t := slice.Index(0).Interface()
 	data := slice.Index(1)
