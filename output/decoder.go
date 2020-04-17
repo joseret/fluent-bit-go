@@ -78,6 +78,9 @@ func GetRecord(dec *FLBDecoder) (ret int, ts interface{}, rec map[interface{}]in
 	}
 	mType := fmt.Sprintf("%T", m)
 	fmt.Printf("GetRecord mType %s\n", mType)
+	if mType == "int64" {
+	  fmt.Printf("GetRecord mType %s-%v\n", mType, m)
+	}
 	
 	slice := reflect.ValueOf(m)
 	t := slice.Index(0).Interface()
