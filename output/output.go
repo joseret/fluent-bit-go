@@ -67,7 +67,8 @@ func FLBPluginConfigKey(plugin unsafe.Pointer, key string) string {
 	fmt.Printf("%v", key)
 	value := C.GoString(C.output_get_property(_key, plugin))
 	C.free(unsafe.Pointer(_key))
-	return value
+	
+	return "key2:" + value
 }
 
 var contexts []interface{}
