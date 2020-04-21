@@ -64,7 +64,6 @@ func FLBPluginUnregister(def unsafe.Pointer) {
 
 func FLBPluginConfigKey(plugin unsafe.Pointer, key string) string {
 	_key := C.CString(key)
-	fmt.Printf("%v", key)
 	value := C.GoString(C.output_get_property(_key, plugin))
 	C.free(unsafe.Pointer(_key))
 	
